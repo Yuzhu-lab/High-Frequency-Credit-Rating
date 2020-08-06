@@ -3,7 +3,7 @@
 This project use high frequency inputs including implied probability of default from CDS and Bond to predict credit rating on company level
 
 ## CDS Pricing
-For each company, we have multiple maturities for CDS contract and this model implies piecewise constant hazard rate to get the curve of Survival Probability along time. The mathmatical model behind calculation of each function in the code () is as below:
+For each company, we have multiple maturities for CDS contract and this model implies piecewise constant hazard rate to get the curve of Survival Probability along time. The mathmatical model behind calculation of each function in the code (CDSPricer.py) is as below:
 
 ### get_discount_factor(self, yieldcurveTenor, yieldcurveRate, t)
 <img src="https://render.githubusercontent.com/render/math?math=Discount Factor = e^{-rt}">
