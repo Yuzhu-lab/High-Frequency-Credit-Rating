@@ -1,6 +1,6 @@
 # High-Frequency-Credit-Rating
 
-This project use high frequency inputs including implied probability of default from CDS and Bond to predict credit rating on company level
+UBS Shadow Rating Project - This project use high frequency inputs including implied probability of default from CDS and Bond to predict credit rating on company level
 
 ## CDS Pricing
 For each company, we have multiple maturities for CDS contract and this model implies piecewise constant hazard rate to get the curve of Survival Probability along time. The mathmatical model behind calculation of each function in the code (CDSPricer.py) is as below:
