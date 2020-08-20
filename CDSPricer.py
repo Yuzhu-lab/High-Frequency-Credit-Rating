@@ -15,7 +15,7 @@ class cds:
         self.accruedPremium = accruedPremium
         self.recoveryRate = recoveryRate
         self.spread = spread
-    
+        
     def get_discount_factor(self, yieldcurveTenor, yieldcurveRate, t):
         result = -1
         min_time_index = 0
@@ -166,7 +166,7 @@ class cds:
                                                                                                 survivalProbability_n)
 
             return (1-recoveryRate)*annuity
-    def objfunFindHazardRate(self, h):
+    def objfunFindHazardRate(self, h, creditcurveSP,  creditcurveTenor, cdsMaturity, spread):
         # print(cdsMaturity)
         premLeg = self.calculatePremiumLeg(creditcurveTenor, creditcurveSP, yieldcurveTenor, yieldcurveRate, cdsMaturity, premiumFrequency, 
                                      accruedPremium, spread,h)
@@ -200,7 +200,9 @@ class cds:
             global spread
             spread = cdsSpreads[i]
             # print(cdsMaturity, spread)
-            h = newton(self.objfunFindHazardRate, cdsSpreads[i])
+            h = newton(self.objfunFindHazardRate, 0, args=(
+                creditcurveSP, creditcurveTenor, cdsMaturity, spread))
+            print("h", h)
             if h > 1:
                 h = 1
             hazardRate[i] = h
@@ -209,6 +211,8 @@ class cds:
             else:
                 survprob[i] = survprob[i-1]*np.exp(-hazardRate[i]*(cdsTenors[i]-cdsTenors[i-1]))
             creditcurveTenor.append(cdsTenors[i])
+            if survprob[i] >=1 :
+                print("i", i)
             creditcurveSP.append(survprob[i])
         return hazardRate, survprob
         
