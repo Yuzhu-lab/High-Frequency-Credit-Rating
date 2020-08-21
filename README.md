@@ -20,3 +20,9 @@ The goal is to calculate accumulated loss given the prob of Survival Curve
 
 ### bootstrapCDSspread(self)
 This funtion use Newton's method to find the hazard rate curve given credit spreads curve
+
+### Note:
+* Risk Free rate can be taken from: https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/textview.aspx?data=yield
+* You can define a CDS with is maturity, payment date, risk free yield. The code can bootstrap the implied hazard rate from market cds spread.
+
+
