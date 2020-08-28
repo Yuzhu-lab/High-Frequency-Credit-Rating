@@ -25,4 +25,10 @@ This funtion use Newton's method to find the hazard rate curve given credit spre
 * Risk Free rate can be taken from: https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/textview.aspx?data=yield
 * You can define a CDS with is maturity, payment date, risk free yield. The code can bootstrap the implied hazard rate from market cds spread.
 
+## Bond Hazard
+This is a model to estimate Probability of Default under the risk-neutral probability measure. 
+<img src="https://render.githubusercontent.com/render/math?math=FairValueOfBond_{t} = Value No Default - Credit Valuation Adjustment">
+Credict Valuation Adjustment is the accumulated CF that was lost due to default event.
+We assume default happen in the middle of each time partition and you can increse the time partition to make the calculation more continous.
+
 
