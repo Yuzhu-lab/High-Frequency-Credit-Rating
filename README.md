@@ -27,8 +27,10 @@ This funtion use Newton's method to find the hazard rate curve given credit spre
 
 ## Bond Hazard
 This is a model to estimate Probability of Default under the risk-neutral probability measure. 
+
 <img src="https://render.githubusercontent.com/render/math?math=FairValueOfBond_{t} = Value No Default - Credit Valuation Adjustment">
-Credict Valuation Adjustment is the accumulated CF that was lost due to default event.
+Credict Valuation Adjustment is the accumulated CF that was lost due to default event. <br/>
+
 We assume default happen in the middle of each time partition and you can increse the time partition to make the calculation more continous.
 
 
